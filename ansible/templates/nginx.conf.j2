@@ -33,12 +33,10 @@ http {
     #gzip  on;
 
     server {
+        listen  80;
         location / {
-            root /data/www;
-        }
-
-        location /images/ {
-            root /data;
+            root   /data/www;
+            index  index.html;
         }
     }
 
