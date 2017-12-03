@@ -62,7 +62,7 @@ Install
 
 ```bash
 ansible-galaxy install nginxinc.nginx-oss
-ansible-playbook nginx.playbook
+ansible-playbook playbooks/nginx.yml
 ```
 
 Verify
