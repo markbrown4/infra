@@ -33,10 +33,42 @@ terraform apply
 ```bash
 ssh ubuntu@<public_ip>
 
-sudo apt-get -y update
-sudo apt-get -y install nginx
-sudo service nginx start
+$ sudo netstat -lnp # see what ports are in use
+$ curl 127.0.0.01:80 # check nginx running
+```
 
-sudo netstat -lnp # see what ports are in use
-curl 127.0.0.01:80 # check nginx running
+## ansible
+
+Install python2 on remote
+
+```bash
+$ apt-get install python -y
+```
+
+Install
+
+```bash
+sudo pip2 install ansible
+mkdir /etc/ansible
+# Add public ip / dns hostname
+touch /etc/ansible/hosts
+# check ansible can connect
+ansible all -m ping --user ubuntu
+```
+
+## nginx
+
+Install
+
+```bash
+ansible-galaxy install nginxinc.nginx-oss
+ansible-playbook nginx.playbook
+```
+
+Verify
+
+```bash
+$ which nginx
+$ sudo netstat -lnp
+$ curl 127.0.0.1:80
 ```
