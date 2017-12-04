@@ -1,6 +1,0 @@
-- name: restart nginx
-  debug: msg="checking config first"
-  changed_when: True
-  notify:
-    - check nginx configuration
-    - restart nginx - after config check
